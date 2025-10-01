@@ -23,6 +23,8 @@ It can answer professional questions using either an AI model or a local knowled
 ## 📂 Project Structure
 ```
 
+Ah yes — the structure looks like it got squished into one line. Here's a clean, readable tree format for your final repo:
+
 mini-ai-chatbot/
 │
 ├── backend/                # Flask backend
@@ -42,6 +44,8 @@ mini-ai-chatbot/
 ├── .gitignore              # Ignore env, node_modules, etc.
 └── README.md               # Project documentation
 
+
+This is professional, readable, and matches best practices.
 ````
 
 ---
@@ -161,6 +165,7 @@ npm install
 ```
 
 ---
+
 
 
 
