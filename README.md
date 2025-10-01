@@ -4,21 +4,21 @@
 ```markdown
 # 🤖 Mini AI Chatbot
 
-A **web-based AI chatbot** built with **Flask (backend)**, **React (frontend)**, and **Groq API** for LLM responses.  
-It answers professional questions using either a local knowledge base or AI fallback, with **chat history** and **markdown-rendered responses**.
+A *web-based AI chatbot** built with **Flask (backend)**, **React (frontend)*, and *Groq API* for LLM responses.  
+It answers professional questions using either a local knowledge base or AI fallback, with *chat history* and *markdown-rendered responses*.
 
 ---
 
 ## 🚀 Features
 
-- **Frontend**: React + TailwindCSS for a clean and responsive UI  
-- **Backend**: Flask REST API with CORS support  
-- **AI Integration**: Groq API for fallback responses  
-- **Knowledge Base**: Local JSON dictionary with predefined Q&A pairs  
-- **Markdown Support**: Rich text rendering of answers  
-- **Chat History**: Stores the last 10 interactions  
-- **Visual Cues**: Differentiates AI vs knowledge base answers  
-- **Loading Animation**: Shows typing indicator while AI responds  
+- *Frontend*: React + TailwindCSS for a clean and responsive UI  
+- *Backend*: Flask REST API with CORS support  
+- *AI Integration*: Groq API for fallback responses  
+- *Knowledge Base*: Local JSON dictionary with predefined Q&A pairs  
+- *Markdown Support*: Rich text rendering of answers  
+- *Chat History*: Stores the last 10 interactions  
+- *Visual Cues*: Differentiates AI vs knowledge base answers  
+- *Loading Animation*: Shows typing indicator while AI responds  
 
 ---
 
@@ -182,6 +182,7 @@ AI/ML Engineer | Passionate about building intelligent applications
 ---
 
 ```
+
 
 
 
