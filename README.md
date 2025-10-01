@@ -1,5 +1,4 @@
 
----
 
 ```
 ---
@@ -9,7 +8,6 @@
 A **web-based AI chatbot** built with **Flask (backend)**, **React (frontend)**, and **Groq API** for LLM responses.
 It answers professional questions using either a local knowledge base or AI fallback, with **chat history** and **markdown-rendered responses**.
 
----
 
 ## 🚀 Features
 
@@ -22,15 +20,13 @@ It answers professional questions using either a local knowledge base or AI fall
 * **Visual Cues**: Differentiates AI vs knowledge base answers
 * **Loading Animation**: Shows typing indicator while AI responds
 
----
 
 
 
-## 📂 Project Structure
 
 ```
 
-Sure! Here's the same structure in a **clean point-wise format** without a code box:
+## 📂 Project Structure
 
 ---
 
@@ -62,7 +58,6 @@ Sure! Here's the same structure in a **clean point-wise format** without a code 
 
 ````
 
----
 
 ## ⚙️ Setup Instructions
 
@@ -183,9 +178,7 @@ npm install
 **Tanuj Manikyala**
 AI/ML Engineer | Passionate about building intelligent applications
 
----
 
-```
 
 
 
