@@ -1,8 +1,5 @@
 
 
-```
----
-
 # 🤖 Mini AI Chatbot
 
 A **web-based AI chatbot** built with **Flask (backend)**, **React (frontend)**, and **Groq API** for LLM responses.
@@ -21,10 +18,6 @@ It answers professional questions using either a local knowledge base or AI fall
 * **Loading Animation**: Shows typing indicator while AI responds
 
 
-
-
-
-```
 
 ## 📂 Project Structure
 
@@ -177,6 +170,7 @@ npm install
 
 **Tanuj Manikyala**
 AI/ML Engineer | Passionate about building intelligent applications
+
 
 
 
