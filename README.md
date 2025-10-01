@@ -32,13 +32,15 @@ mini-ai-chatbot/
 │
 ├── frontend/              # React frontend
 │   ├── src/
-│   │   ├── App.js         # Main React app
-│   │   ├── components/    # UI components
-│   │   └── ...
-│   ├── package.json
+│   │   ├── App.jsx        # Main React app
+│   │   ├── App.css        # Styles
+│   │   ├── index.jsx      # Entry point
+│   │   └── components/    # Optional UI components
+│   ├── package.json       # NPM dependencies
+│   └── index.html         # HTML template
 │
-├── .gitignore
-├── README.md
+├── .gitignore             # Ignore env, node_modules, etc.
+├── README.md              # Project documentation
 
 ````
 
@@ -159,5 +161,6 @@ npm install
 ```
 
 ---
+
 
 
