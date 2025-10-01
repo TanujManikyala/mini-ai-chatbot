@@ -4,55 +4,55 @@
 ```markdown
 # 🤖 Mini AI Chatbot
 
-A simple **AI-powered chatbot** built with **Flask (backend)**, **React (frontend)**, and **Groq API** for LLM responses.  
-It can answer professional questions using either an AI model or a local knowledge base.
+A **web-based AI chatbot** built with **Flask (backend)**, **React (frontend)**, and **Groq API** for LLM responses.  
+It answers professional questions using either a local knowledge base or AI fallback, with **chat history** and **markdown-rendered responses**.
 
 ---
 
 ## 🚀 Features
-- 🔹 **Frontend**: React (with Tailwind for UI)
-- 🔹 **Backend**: Flask REST API
-- 🔹 **LLM**: Groq API integration
-- 🔹 **Markdown Support**: Answers render nicely with formatting
-- 🔹 **History**: Chat history with smooth scrolling
-- 🔹 **Visual Separation**: Distinguishes AI answers vs Knowledge Base answers
-- 🔹 **Loading Animation**: Shows spinner while AI responds
+
+- **Frontend**: React + TailwindCSS for a clean and responsive UI  
+- **Backend**: Flask REST API with CORS support  
+- **AI Integration**: Groq API for fallback responses  
+- **Knowledge Base**: Local JSON dictionary with predefined Q&A pairs  
+- **Markdown Support**: Rich text rendering of answers  
+- **Chat History**: Stores the last 10 interactions  
+- **Visual Cues**: Differentiates AI vs knowledge base answers  
+- **Loading Animation**: Shows typing indicator while AI responds  
 
 ---
 
 ## 📂 Project Structure
-```
 
-Ah yes — the structure looks like it got squished into one line. Here's a clean, readable tree format for your final repo:
+```
 
 mini-ai-chatbot/
 │
-├── backend/                # Flask backend
-│   ├── app.py              # Main Flask app
-│   ├── requirements.txt    # Python dependencies
-│   └── .env                # API keys (ignored by git)
+├── backend/                    # Flask backend
+│   ├── app.py                  # Main Flask app
+│   ├── requirements.txt        # Python dependencies
+│   └── .env                    # API keys (ignored by git)
 │
-├── frontend/               # React frontend
+├── frontend/                   # React frontend
 │   ├── src/
-│   │   ├── App.jsx         # Main React app
-│   │   ├── App.css         # Styles
-│   │   ├── index.jsx       # Entry point
-│   │   └── components/     # Optional UI components
-│   ├── package.json        # NPM dependencies
-│   └── index.html          # HTML template
+│   │   ├── App.jsx             # Main React component
+│   │   ├── App.css             # Styles
+│   │   ├── index.jsx           # React entry point
+│   │   └── components/         # Optional UI components
+│   ├── package.json            # NPM dependencies
+│   └── index.html              # HTML template
 │
-├── .gitignore              # Ignore env, node_modules, etc.
-└── README.md               # Project documentation
+├── .gitignore                  # Ignore node_modules, env files, etc.
+└── README.md                   # Project documentation
 
-
-This is professional, readable, and matches best practices.
 ````
 
 ---
 
 ## ⚙️ Setup Instructions
 
-### 1️⃣ Clone the Repo
+### 1️⃣ Clone the Repository
+
 ```bash
 git clone https://github.com/TanujManikyala/mini-ai-chatbot.git
 cd mini-ai-chatbot
@@ -65,25 +65,28 @@ cd mini-ai-chatbot
 ```bash
 cd backend
 python -m venv venv
-source venv/bin/activate   # On Linux/Mac
-venv\Scripts\activate      # On Windows
+# Activate virtual environment
+# Windows:
+venv\Scripts\activate
+# Linux/Mac:
+source venv/bin/activate
 
 pip install -r requirements.txt
 ```
 
-👉 Create a `.env` file in `backend/`:
+Create a `.env` file inside `backend/`:
 
 ```
 GROQ_API_KEY=your_groq_api_key_here
 ```
 
-Run backend:
+Run the backend server:
 
 ```bash
 python app.py
 ```
 
-Backend runs on **[http://127.0.0.1:5000/](http://127.0.0.1:5000/)**
+The backend runs at: **[http://127.0.0.1:5000/](http://127.0.0.1:5000/)**
 
 ---
 
@@ -95,34 +98,38 @@ npm install
 npm start
 ```
 
-Frontend runs on **[http://localhost:3000/](http://localhost:3000/)**
+Frontend runs at: **[http://localhost:3000/](http://localhost:3000/)**
 
 ---
 
 ## 🖥️ Usage
 
-1. Open [http://localhost:3000](http://localhost:3000) in browser.
-2. Ask professional questions (e.g., *"How to prioritize tasks?"*).
-3. Bot responds using **Groq LLM** or **Knowledge Base**.
+1. Open **[http://localhost:3000/](http://localhost:3000/)** in your browser.
+2. Enter a professional question (e.g., `"How to prioritize tasks?"`).
+3. The chatbot responds either from the **knowledge base** or via the **Groq LLM**.
+4. Scroll through the last 10 interactions in the chat history.
 
 ---
 
-## 🔒 Environment & Security
+## 🔒 Security & Best Practices
 
-* Never commit your `.env` file.
-* `.gitignore` is configured to **ignore secrets**.
-* Store your API keys locally only.
+* **Never commit your `.env` file**; it contains sensitive API keys.
+* `.gitignore` is preconfigured to ignore secrets and `node_modules`.
+* API keys should be stored locally and never pushed to GitHub.
 
 ---
 
 ## 📦 Dependencies
 
-### Backend
+### Backend (Python)
 
 * Flask
 * Flask-CORS
+* fuzzywuzzy
+* python-Levenshtein (optional, speeds up fuzzy matching)
+* requests
+* python-dotenv
 * Groq Python SDK
-* Python-Dotenv
 
 Install with:
 
@@ -130,13 +137,13 @@ Install with:
 pip install -r backend/requirements.txt
 ```
 
-### Frontend
+### Frontend (JavaScript)
 
 * React
-* TailwindCSS
-* Axios
-* React-Markdown
-* Remark-GFM
+* TailwindCSS (or plain CSS)
+* Axios (if making HTTP calls)
+* react-markdown
+* remark-gfm
 
 Install with:
 
@@ -148,25 +155,20 @@ npm install
 
 ## 🛠️ Future Enhancements
 
-* Add user authentication
-* Store chat history in database
-* Deploy on cloud (Heroku, Vercel, or Railway)
-* Add multiple AI model support
+* Add **user authentication**
+* Store chat history in a **database**
+* Deploy to **cloud platforms** (Heroku, Vercel, Railway)
+* Support **multiple AI models**
+* Add **multi-language support**
 
 ---
 
 ## 👨‍💻 Author
 
 **Tanuj Manikyala**
-🚀 AI/ML Engineer | Passionate about AI-powered applications
+AI/ML Engineer | Passionate about building intelligent applications
 
 ---
 
 ```
-
----
-
-
-
-
 
