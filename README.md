@@ -31,7 +31,9 @@ mini-ai-chatbot/
 ├── backend/                    # Flask backend
 │   ├── app.py                  # Main Flask app
 │   ├── requirements.txt        # Python dependencies
-│   └── .env                    # API keys (ignored by git)
+│   ├── .env                    # API keys (ignored by git)
+│   ├── history.json            # Chat history (last 10 questions/answers)
+│   └── knowledge_base.json     # Predefined Q&A knowledge base
 │
 ├── frontend/                   # React frontend
 │   ├── src/
@@ -171,4 +173,5 @@ AI/ML Engineer | Passionate about building intelligent applications
 ---
 
 ```
+
 
