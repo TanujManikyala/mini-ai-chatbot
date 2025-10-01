@@ -25,22 +25,22 @@ It can answer professional questions using either an AI model or a local knowled
 
 mini-ai-chatbot/
 │
-├── backend/               # Flask backend
-│   ├── app.py             # Main Flask app
-│   ├── requirements.txt   # Python dependencies
-│   └── .env               # API keys (ignored by git)
+├── backend/                # Flask backend
+│   ├── app.py              # Main Flask app
+│   ├── requirements.txt    # Python dependencies
+│   └── .env                # API keys (ignored by git)
 │
-├── frontend/              # React frontend
+├── frontend/               # React frontend
 │   ├── src/
-│   │   ├── App.jsx        # Main React app
-│   │   ├── App.css        # Styles
-│   │   ├── index.jsx      # Entry point
-│   │   └── components/    # Optional UI components
-│   ├── package.json       # NPM dependencies
-│   └── index.html         # HTML template
+│   │   ├── App.jsx         # Main React app
+│   │   ├── App.css         # Styles
+│   │   ├── index.jsx       # Entry point
+│   │   └── components/     # Optional UI components
+│   ├── package.json        # NPM dependencies
+│   └── index.html          # HTML template
 │
-├── .gitignore             # Ignore env, node_modules, etc.
-├── README.md              # Project documentation
+├── .gitignore              # Ignore env, node_modules, etc.
+└── README.md               # Project documentation
 
 ````
 
@@ -161,6 +161,7 @@ npm install
 ```
 
 ---
+
 
 
 
