@@ -1,0 +1,12 @@
+{
+"How can I improve team productivity?": "Use short daily stand-ups, set clear OKRs, encourage time-blocking, and run regular retrospectives to remove blockers.",
+"Tips for remote work?": "Maintain a fixed schedule, use video check-ins, document processes, and set clear boundaries between work and personal time.",
+"How to prioritize tasks?": "Use the Eisenhower Matrix: separate urgent-important, not-urgent-important, urgent-not-important, and not-urgent-not-important tasks.",
+"How to manage startup funding?": "Track your runway, build relationships with investors early, prepare a clear financial model, and plan funding rounds well before you run out of cash.",
+"How to run effective meetings?": "Circulate an agenda beforehand, start on time, limit attendees to essential people, and end with clear action items and owners.",
+"How to onboard new hires quickly?": "Provide a 30-60-90 day plan, assign a mentor, give early wins, and document key systems and processes.",
+"How to give constructive feedback?": "Use the situation-behavior-impact format, be specific, focus on actions (not personality), and offer next steps.",
+"Best practices for handling technical debt?": "Prioritize debt by impact, schedule regular refactors, add tests, and estimate cleanup effort during planning.",
+"How to set goals for a team?": "Set SMART goals and align them to company objectives. Break them into quarterly milestones and track progress frequently.",
+"How to improve developer productivity?": "Automate repetitive tasks, reduce context switching, invest in CI/CD, and ensure code reviews are timely and constructive."
+}
