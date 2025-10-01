@@ -28,24 +28,24 @@ It answers professional questions using either a local knowledge base or AI fall
 
 mini-ai-chatbot/
 │
-├── backend/                    # Flask backend
-│   ├── app.py                  # Main Flask app
-│   ├── requirements.txt        # Python dependencies
-│   ├── .env                    # API keys (ignored by git)
-│   ├── history.json            # Chat history (last 10 questions/answers)
-│   └── knowledge_base.json     # Predefined Q&A knowledge base
+├── backend/ # Flask backend
+│ ├── app.py # Main Flask app
+│ ├── requirements.txt # Python dependencies
+│ ├── .env # API keys (ignored by git)
+│ ├── history.json # Chat history (last 10 questions/answers)
+│ └── knowledge_base.json # Predefined Q&A knowledge base
 │
-├── frontend/                   # React frontend
-│   ├── src/
-│   │   ├── App.jsx             # Main React component
-│   │   ├── App.css             # Styles
-│   │   ├── index.jsx           # React entry point
-│   │   └── components/         # Optional UI components
-│   ├── package.json            # NPM dependencies
-│   └── index.html              # HTML template
+├── frontend/ # React frontend
+│ ├── src/
+│ │ ├── App.jsx # Main React component
+│ │ ├── App.css # Styles
+│ │ ├── index.jsx # React entry point
+│ │ └── components/ # Optional UI components
+│ ├── package.json # NPM dependencies
+│ └── index.html # HTML template
 │
-├── .gitignore                  # Ignore node_modules, env files, etc.
-└── README.md                   # Project documentation
+├── .gitignore # Ignore node_modules, env files, etc.
+└── README.md # Project documentation
 
 ````
 
@@ -173,5 +173,6 @@ AI/ML Engineer | Passionate about building intelligent applications
 ---
 
 ```
+
 
 
