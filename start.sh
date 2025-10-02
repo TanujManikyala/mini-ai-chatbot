@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 # Use the PORT environment variable provided by Railway, default to 8000
 PORT=${PORT:-8000}
