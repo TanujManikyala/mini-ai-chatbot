@@ -17,6 +17,10 @@ RUN pip install --no-cache-dir flask flask-cors fuzzywuzzy python-Levenshtein op
 COPY start.sh .
 RUN chmod +x start.sh
 
-EXPOSE 8000  
+# Dockerfile
 
-CMD ["./start.sh"]
+# Copy the startup script into the container
+COPY start.sh /app/start.sh
+
+# Set the entry point to the startup script
+ENTRYPOINT ["/app/start.sh"]
