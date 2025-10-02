@@ -1,13 +1,10 @@
 #!/bin/bash
 
 # Set default port if not provided by Railway
-PORT="${PORT:-8000}"
-
-echo "Starting Flask app on port $PORT..."
-
-# Start Gunicorn pointing to your Flask app
+#!/bin/bash
+echo "Starting Flask app via Gunicorn..."
 exec gunicorn backend.app:app \
-    --bind 0.0.0.0:$PORT \
+    --bind 0.0.0.0:${PORT:-8000} \
     --workers 4 \
     --threads 2 \
     --timeout 120
