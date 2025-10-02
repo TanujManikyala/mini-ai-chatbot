@@ -1,4 +1,5 @@
-# Stage 1: Build frontend
+# Dockerfile (place at repo root)
+# Stage: build frontend
 FROM node:18 AS frontend
 WORKDIR /app/frontend
 COPY frontend/package*.json ./
@@ -6,30 +7,28 @@ RUN npm install
 COPY frontend/ ./
 RUN npm run build
 
-# Stage 2: Final image with backend + static frontend
+# Final image with Python runtime
 FROM python:3.10-slim
 WORKDIR /app
 
-# Install system deps needed for some python packages (optional)
-RUN apt-get update && apt-get install -y --no-install-recommends \
-    build-essential \
+# (optional) minimal build deps for some wheels
+RUN apt-get update && apt-get install -y --no-install-recommends build-essential \
     && rm -rf /var/lib/apt/lists/*
 
-# Copy backend code
+# Copy backend source
 COPY backend/ ./backend
 
-# Copy frontend build into backend/static so Flask app can serve it
+# Copy frontend build into backend/static (Flask serves backend/static)
 COPY --from=frontend /app/frontend/dist ./backend/static
 
-# Copy start.py
+# Copy start.py (must exist in repo root)
 COPY start.py .
 
-# Install Python dependencies
-RUN pip install --no-cache-dir \
-    flask flask-cors fuzzywuzzy python-Levenshtein requests openai waitress
+# Install Python deps
+RUN pip install --no-cache-dir flask flask-cors fuzzywuzzy python-Levenshtein requests openai waitress
 
-# Expose (informational)
+# Expose for documentation only
 EXPOSE 8000
 
-# Runtime command: start.py will read PORT from env and start waitress
+# Run the Python entrypoint that reads PORT env var
 CMD ["python", "start.py"]
