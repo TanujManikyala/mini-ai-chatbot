@@ -14,8 +14,10 @@ COPY --from=frontend /app/frontend/dist ./frontend/dist
 
 RUN pip install --no-cache-dir flask flask-cors fuzzywuzzy python-Levenshtein openai gunicorn
 
-COPY start.sh .
-RUN chmod +x start.sh
+COPY start.sh /app/start.sh
+RUN chmod +x /app/start.sh
+CMD ["/app/start.sh"]
+
 
 # Dockerfile
 
