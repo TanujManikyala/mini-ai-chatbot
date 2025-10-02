@@ -9,6 +9,9 @@ export default function App() {
   const [loading, setLoading] = useState(false);
   const chatEndRef = useRef(null);
 
+  // API URL from environment variable
+  const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:8000';
+
   const ask = async () => {
     if (!question.trim()) return;
     setLoading(true);
@@ -18,19 +21,20 @@ export default function App() {
     setQuestion('');
 
     try {
-      const res = await fetch('http://127.0.0.1:5000/ask', {
+      const res = await fetch(`${API_URL}/ask`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ question: userQuestion }),
       });
+
       const data = await res.json();
       const answer = data.answer;
-      const source = data.source; // can be 'knowledge_base ✅' or 'AI model 🤖'
+      const source = data.source; // 'knowledge_base ✅' or 'error'
 
       setHistory((prev) =>
         prev.map((h) =>
           h.q === userQuestion && h.source === 'user'
-            ? { ...h, a: answer, source }
+            ? { ...h, a: answer, source: source.includes('knowledge_base') ? 'bot' : 'error' }
             : h
         )
       );
@@ -74,13 +78,7 @@ export default function App() {
           <div
             key={idx}
             className={`chat-bubble ${
-              item.source === 'bot'
-                ? 'bot'
-                : item.source === 'error'
-                ? 'error'
-                : item.source === 'AI model 🤖'
-                ? 'ai-bot'
-                : 'user'
+              item.source === 'bot' ? 'bot' : item.source === 'error' ? 'error' : 'user'
             }`}
           >
             <div className="message">
@@ -88,20 +86,10 @@ export default function App() {
                 ? '🧑 You: '
                 : item.source === 'bot'
                 ? '🤖 Bot: '
-                : item.source === 'AI model 🤖'
-                ? '🤖 AI: '
-                : ''}
-              {item.a ? (
-                <ReactMarkdown remarkPlugins={[remarkGfm]}>{item.a}</ReactMarkdown>
-              ) : (
-                item.q
-              )}
+                : '⚠️ Error: '}
+              {item.a ? <ReactMarkdown remarkPlugins={[remarkGfm]}>{item.a}</ReactMarkdown> : item.q}
             </div>
-            {(item.source === 'bot' || item.source === 'AI model 🤖') && (
-              <div className="source">
-                source: {item.source === 'bot' ? 'knowledge_base ✅' : 'AI model 🤖'}
-              </div>
-            )}
+            {item.source === 'bot' && <div className="source">source: knowledge_base ✅</div>}
           </div>
         ))}
 

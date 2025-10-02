@@ -1,28 +1,21 @@
-# ---------- Build Frontend ----------
+# Stage 1: Build frontend
 FROM node:18 AS frontend
 WORKDIR /app/frontend
-COPY frontend/ .
+COPY frontend/package*.json ./
 RUN npm install
-RUN npm run build   # builds React app into /dist
+COPY frontend/ ./
+RUN npm run build
 
-# ---------- Backend with Flask ----------
-FROM python:3.10 AS backend
+# Stage 2: Build backend
+FROM python:3.10-slim
 WORKDIR /app
-
-# Install Python dependencies
-COPY backend/requirements.txt .
-RUN pip install -r requirements.txt
-
-# Copy backend code
 COPY backend/ ./backend
+COPY --from=frontend /app/frontend/dist ./frontend/dist
 
-# Copy frontend build into backend static folder
-COPY --from=frontend /app/frontend/dist ./backend/static
+RUN pip install --no-cache-dir flask flask-cors fuzzywuzzy python-Levenshtein openai gunicorn
 
-# Flask runs from backend
-ENV FLASK_APP=backend/app.py
-ENV FLASK_RUN_HOST=0.0.0.0
-ENV FLASK_ENV=production
+COPY start.sh .
+RUN chmod +x start.sh
 
-EXPOSE 5000
-CMD ["flask", "run"]
+EXPOSE 8000
+CMD ["./start.sh"]
