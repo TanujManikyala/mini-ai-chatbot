@@ -17,5 +17,8 @@ RUN pip install --no-cache-dir flask flask-cors fuzzywuzzy python-Levenshtein op
 COPY start.sh .
 RUN chmod +x start.sh
 
+# Expose port (optional)
 EXPOSE 8000
+
+# Start app
 CMD ["./start.sh"]

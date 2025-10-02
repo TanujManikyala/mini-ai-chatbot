@@ -4,12 +4,14 @@ from fuzzywuzzy import process
 import json, os
 import openai
 
+# Your GROQ API key
 GROQ_API_KEY = "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"
 
-# Flask points to the React build folder inside Docker
-app = Flask(__name__, static_folder="../frontend/dist", static_url_path="/")
+# Flask app points to React build
+app = Flask(__name__, static_folder='../frontend/dist', static_url_path='/')
 CORS(app)
 
+# Serve frontend
 @app.route('/', defaults={'path': ''})
 @app.route('/<path:path>')
 def serve(path):
@@ -39,6 +41,7 @@ def save_to_history(question, answer, source):
     with open(HISTORY_FILE, "w") as f:
         json.dump(history, f, indent=2)
 
+# GROQ fallback
 def groq_fallback(question):
     try:
         client = openai.OpenAI(
@@ -50,13 +53,12 @@ def groq_fallback(question):
             input=question
         )
         answer = response.output_text
-        if not answer:
-            answer = "I’m sorry, I didn’t catch that. How can I help you?"
-        return answer
+        return answer or "I’m sorry, I didn’t catch that. How can I help you?"
     except Exception as e:
         print("Groq API error:", e)
         return "❌ Error contacting AI model"
 
+# Ask route
 @app.route('/ask', methods=['POST'])
 def ask():
     data = request.get_json()
@@ -71,6 +73,7 @@ def ask():
     save_to_history(question, answer, source)
     return jsonify({"answer": answer, "source": source})
 
+# History route
 @app.route('/history', methods=['GET'])
 def get_history():
     with open(HISTORY_FILE, "r") as f:
@@ -78,7 +81,5 @@ def get_history():
     return jsonify(history)
 
 if __name__ == "__main__":
-    import os
-    port = int(os.environ.get("PORT", 8000))  # Railway sets PORT automatically
-    print(f"Starting Flask app on port {port}...")
+    port = int(os.environ.get("PORT", 8000))
     app.run(host="0.0.0.0", port=port)
