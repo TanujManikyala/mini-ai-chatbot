@@ -1,181 +1,207 @@
+Got it 👍 — since you haven’t deployed to **Railway** or **Netlify** yet, I’ll create a **README.md** file assuming you’re working locally with both **Flask (backend)** and **React (frontend)**.
 
+You can later modify the “Deployment” section when you choose to host it on Vercel or any platform.
 
-# 🤖 Mini AI Chatbot
+Here’s your clean, professional **`README.md`** 👇
 
-A **web-based AI chatbot** built with **Flask (backend)**, **React (frontend)**, and **Groq API** for LLM responses.
-It answers professional questions using either a local knowledge base or AI fallback, with **chat history** and **markdown-rendered responses**.
+---
 
+```markdown
+# 💬 Mini AI Chatbot — Professional Q&A Assistant
+
+An AI-powered chatbot built with **Flask (Python)** for the backend and **React (Vite)** for the frontend.  
+This chatbot answers professional productivity questions using a local knowledge base and AI fallback via **GROQ API**.
+
+---
 
 ## 🚀 Features
 
-* **Frontend**: React + TailwindCSS for a clean and responsive UI
-* **Backend**: Flask REST API with CORS support
-* **AI Integration**: Groq API for fallback responses
-* **Knowledge Base**: Local JSON dictionary with predefined Q&A pairs
-* **Markdown Support**: Rich text rendering of answers
-* **Chat History**: Stores the last 10 interactions
-* **Visual Cues**: Differentiates AI vs knowledge base answers
-* **Loading Animation**: Shows typing indicator while AI responds
-
-
-
-## 📂 Project Structure
+- 🧠 AI responses using **GROQ OpenAI-compatible API**
+- 📚 Built-in knowledge base for instant answers
+- 🕓 Chat history stored locally (`history.json`)
+- 🌐 Cross-origin support with `flask-cors`
+- 🎨 Modern UI built with **React + Vite**
+- ⚡ Lightweight and fast (Flask + Vite combo)
 
 ---
 
-* **mini-ai-chatbot/**
+## 🗂️ Project Structure
 
-  * **backend/** – Flask backend
+```
 
-    * `app.py` – Main Flask app
-    * `requirements.txt` – Python dependencies
-    * `.env` – API keys (ignored by git)
-    * `history.json` – Chat history (last 10 questions/answers)
-    * `knowledge_base.json` – Predefined Q&A knowledge base
-  * **frontend/** – React frontend
-
-    * **src/**
-
-      * `App.jsx` – Main React component
-      * `App.css` – Styles
-      * `index.jsx` – React entry point
-      * `components/` – Optional UI components
-    * `package.json` – NPM dependencies
-    * `index.html` – HTML template
-  * `.gitignore` – Ignore node_modules, env files, etc.
-  * `README.md` – Project documentation
-
----
-
-
+mini-ai-chatbot/
+│
+├── backend/
+│   ├── app.py              # Flask backend API
+│   ├── history.json        # Local history file
+│   ├── requirements.txt    # Python dependencies
+│
+├── frontend/
+│   ├── src/
+│   │   ├── App.jsx         # React main component
+│   │   ├── App.css         # Styling
+│   │   └── main.jsx        # Entry point
+│   ├── package.json        # Node dependencies
+│   ├── vite.config.js      # Vite configuration
+│   └── .env (optional)     # Frontend environment variables
+│
+├── Dockerfile              # (Optional) for containerized deployment
+├── README.md               # Documentation
+└── start.sh                # Start script (for deployment)
 
 ````
 
+---
 
 ## ⚙️ Setup Instructions
 
-### 1️⃣ Clone the Repository
+### 1️⃣ Backend Setup (Flask)
 
-```bash
-git clone https://github.com/TanujManikyala/mini-ai-chatbot.git
-cd mini-ai-chatbot
-````
-
----
-
-### 2️⃣ Backend Setup (Flask)
-
+#### Step 1: Navigate to backend folder
 ```bash
 cd backend
-python -m venv venv
-# Activate virtual environment
-# Windows:
-venv\Scripts\activate
-# Linux/Mac:
-source venv/bin/activate
+````
 
+#### Step 2: Create a virtual environment
+
+```bash
+python -m venv venv
+venv\Scripts\activate       # On Windows
+# or
+source venv/bin/activate    # On macOS/Linux
+```
+
+#### Step 3: Install dependencies
+
+```bash
 pip install -r requirements.txt
 ```
 
-Create a `.env` file inside `backend/`:
-
-```
-GROQ_API_KEY=your_groq_api_key_here
-```
-
-Run the backend server:
+#### Step 4: Run the Flask app
 
 ```bash
 python app.py
 ```
 
-The backend runs at: **[http://127.0.0.1:5000/](http://127.0.0.1:5000/)**
+> By default, it runs at `http://127.0.0.1:8000`
 
 ---
 
-### 3️⃣ Frontend Setup (React)
+### 2️⃣ Frontend Setup (React + Vite)
+
+#### Step 1: Navigate to frontend folder
 
 ```bash
-cd ../frontend
-npm install
-npm start
+cd frontend
 ```
 
-Frontend runs at: **[http://localhost:3000/](http://localhost:3000/)**
-
----
-
-## 🖥️ Usage
-
-1. Open **[http://localhost:3000/](http://localhost:3000/)** in your browser.
-2. Enter a professional question (e.g., `"How to prioritize tasks?"`).
-3. The chatbot responds either from the **knowledge base** or via the **Groq LLM**.
-4. Scroll through the last 10 interactions in the chat history.
-
----
-
-## 🔒 Security & Best Practices
-
-* **Never commit your `.env` file**; it contains sensitive API keys.
-* `.gitignore` is preconfigured to ignore secrets and `node_modules`.
-* API keys should be stored locally and never pushed to GitHub.
-
----
-
-## 📦 Dependencies
-
-### Backend (Python)
-
-* Flask
-* Flask-CORS
-* fuzzywuzzy
-* python-Levenshtein (optional, speeds up fuzzy matching)
-* requests
-* python-dotenv
-* Groq Python SDK
-
-Install with:
-
-```bash
-pip install -r backend/requirements.txt
-```
-
-### Frontend (JavaScript)
-
-* React
-* TailwindCSS (or plain CSS)
-* Axios (if making HTTP calls)
-* react-markdown
-* remark-gfm
-
-Install with:
+#### Step 2: Install dependencies
 
 ```bash
 npm install
 ```
 
----
+#### Step 3: Start the development server
 
-## 🛠️ Future Enhancements
+```bash
+npm run dev
+```
 
-* Add **user authentication**
-* Store chat history in a **database**
-* Deploy to **cloud platforms** (Heroku, Vercel, Railway)
-* Support **multiple AI models**
-* Add **multi-language support**
+> The app will open at `http://localhost:5173`
 
 ---
 
-## 👨‍💻 Author
+### 3️⃣ Connect Frontend & Backend
 
-**Tanuj Manikyala**
-AI/ML Engineer | Passionate about building intelligent applications
+In the frontend source file (`frontend/src/App.jsx`), the app uses:
 
+```js
+const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:8000';
+```
 
+So when running locally:
 
+* Backend → [http://localhost:8000](http://localhost:8000)
+* Frontend → [http://localhost:5173](http://localhost:5173)
+  ✅ CORS automatically allows requests between them.
 
+---
 
+## 🧩 Environment Variables
 
+### Backend (Flask)
 
+```
+PORT=8000
+GROQ_API_KEY=your_groq_api_key_here
+```
 
+### Frontend (React)
 
+Create a `.env` file inside `/frontend`:
+
+```
+VITE_API_URL=http://localhost:8000
+```
+
+---
+
+## 🧠 Tech Stack
+
+| Layer     | Technology                        |
+| --------- | --------------------------------- |
+| Frontend  | React (Vite)                      |
+| Backend   | Flask (Python)                    |
+| AI API    | GROQ (OpenAI-compatible endpoint) |
+| Styling   | CSS                               |
+| Utilities | fuzzywuzzy, flask-cors            |
+
+---
+
+## 🧱 Build Commands
+
+### Frontend Build (for production)
+
+```bash
+cd frontend
+npm run build
+```
+
+### Backend Start
+
+```bash
+cd backend
+python app.py
+```
+
+---
+
+## 🧑‍💻 Future Improvements
+
+* Add user authentication (JWT-based)
+* Store chat history in a database (PostgreSQL)
+* Deploy backend using Railway or Render
+* Deploy frontend on Vercel or Netlify
+* Add dark/light theme toggle
+
+---
+
+## 📜 License
+
+MIT License © 2025 [Tanuj Manikyala](https://github.com/tanujmanikyala)
+
+---
+
+## 💡 Author
+
+**👨‍💻 Tanuj Manikyala**
+AI/ML Engineer | Flask & React Developer
+📧 Email: [manikyalatanuj@gmail.com](mailto:manikyalatanuj@gmail.com)
+🌐 Portfolio: [coming soon]
+
+```
+
+---
+
+Would you like me to include a **Vercel deployment guide section** (with exact build settings) at the end of this README for later use?
+```
