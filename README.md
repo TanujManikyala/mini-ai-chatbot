@@ -1,8 +1,3 @@
-Got it 👍 — since you haven’t deployed to **Railway** or **Netlify** yet, I’ll create a **README.md** file assuming you’re working locally with both **Flask (backend)** and **React (frontend)**.
-
-You can later modify the “Deployment” section when you choose to host it on Vercel or any platform.
-
-Here’s your clean, professional **`README.md`** 👇
 
 ---
 
@@ -205,3 +200,4 @@ AI/ML Engineer | Flask & React Developer
 
 Would you like me to include a **Vercel deployment guide section** (with exact build settings) at the end of this README for later use?
 ```
+
